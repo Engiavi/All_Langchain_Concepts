@@ -5,7 +5,7 @@ import os
 
 llm = OpenAI(model='gpt-3.5-turbo-instruct', api_key=os.getenv ('OPENAI_API_KEY'))
 
-llm.invoke("What is the capital of India?") #invoke is use to call the model and ask the question, if it gives output then it is working fine
+result = llm.invoke("What is the capital of India?") #invoke is use to call the model and ask the question, if it gives output then it is working fine
 
 # whole working of above code
 # 1. First we import OpenAI from langchain_openai and load_dotenv from dotenv
@@ -14,3 +14,4 @@ llm.invoke("What is the capital of India?") #invoke is use to call the model and
 # 4. Then we call the invoke method and pass the question as an argument
 # 5. If the output is generated then the code is working fine
 
+print(result)
