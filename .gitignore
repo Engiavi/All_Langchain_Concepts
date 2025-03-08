@@ -19,3 +19,5 @@ __pycache__
 *.~lock.*
 .DS_Store
 Thumbs.db
+.env
+./env
