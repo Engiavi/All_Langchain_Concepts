@@ -8,4 +8,3 @@ text = "What is the capital of India?"
 
 result = embedding.embed_query(text)
 print(str(result))
- 
