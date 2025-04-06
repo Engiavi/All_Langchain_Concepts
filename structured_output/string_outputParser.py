@@ -29,6 +29,6 @@ chain = template1 | model | parser | template2 | model | parser
 # model generates a response
 # parser parses the response to string
 
-result = chain.invoke({"topic": "Black Hole"})
+result = chain.invoke({"topic": "Black Hole"} )
 
 print(result)
