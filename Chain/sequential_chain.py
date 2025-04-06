@@ -19,3 +19,4 @@ chain = template1 | model | parser | template2 | model | parser
 result = chain.invoke({"topic": "Buggati"})
 print(result)
 
+chain.get_graph().print_ascii()
