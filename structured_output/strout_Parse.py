@@ -1,6 +1,6 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI # type: ignore
 from dotenv import load_dotenv
-from langchain_core.prompts import ChatPromptTemplate,PromptTemplate
+from langchain_core.prompts import ChatPromptTemplate,PromptTemplate # type: ignore
 
 load_dotenv()
 

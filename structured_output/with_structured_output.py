@@ -1,7 +1,7 @@
 # from langchain_google_genai import ChatGoogleGenerativeAI
 # from dotenv import load_dotenv
 from typing import TypedDict, Annotated, Optional,Literal 
-from langchain_anthropic import ChatAnthropic
+from langchain_anthropic import ChatAnthropic # type: ignore
 from dotenv import load_dotenv
 
 load_dotenv()
