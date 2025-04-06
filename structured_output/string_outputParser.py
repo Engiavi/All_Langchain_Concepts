@@ -21,7 +21,13 @@ parser = StrOutputParser() # this will parse the output of the model and convert
 
 chain = template1 | model | parser | template2 | model | parser
 # chain is basically chaning the output of one model to the input of another model
-# in the above line we are chaining the output of template1 to model and then take the result of model to send it to parser, parser will parse the output and then send it to template2 and then again send the result to model and then again parser will parse the output
+# execution of the chain will be like this
+# template1 generates a prompt
+# model generates a response
+# parser parses the response to string
+# template2 generates a prompt
+# model generates a response
+# parser parses the response to string
 
 result = chain.invoke({"topic": "Black Hole"})
 
