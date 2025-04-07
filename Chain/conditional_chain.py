@@ -52,7 +52,7 @@ branch = RunnableBranch(
 )
 
 chain = classifier_chain | branch
-result = chain.invoke({"feedback": "i don't know about this product "})
+result = chain.invoke({"feedback": "i don't know about this product f"})
 print(result)
 
 chain.get_graph().print_ascii() # visualize the chain
