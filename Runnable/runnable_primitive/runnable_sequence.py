@@ -12,9 +12,14 @@ parser = StrOutputParser()#string output parser
 prompt =PromptTemplate( #prompt template
     template = "write a joke about {text}",
     input_variables = ["text"],
-)
+) 
 
-chain = RunnableSequence(prompt,model,parser)
+prompt2 = PromptTemplate(
+    template = "Explain the provided joke {text}",
+    input_variables = ["text"],
+)
+ 
+chain = RunnableSequence(prompt,model,parser,prompt2,model,parser)
 # it performs the above chain like this prompt's output->(prompt's output becomes input) model's output->(model's output becomes input)parser
 
 result = chain.invoke({"text":"What is the capital of France?"})
