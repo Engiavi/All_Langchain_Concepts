@@ -19,8 +19,9 @@ prompt2 = PromptTemplate(
     input_variables =['topic']
 )
 
-output1 = RunnableSequence(prompt,model,parser)
+# output1 = RunnableSequence(prompt,model,parser) # with the help of RunnableSequence 
 
+output1 = prompt | model | parser # this is equivalent to the above line also called as LCEL or Chain, execute in similar way as RunnableSequence
 branch_chain = RunnableBranch(
     (lambda x: len(x.split())>500,RunnableSequence(prompt2,model,parser)),
     RunnablePassthrough()
