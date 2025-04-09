@@ -1,4 +1,4 @@
-from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter # importing the CharacterTextSplitter class
 
 text ="""
 **Generative AI (GenAI): A Transformative Force in Technology**
@@ -11,8 +11,8 @@ One of the most compelling aspects of GenAI is its ability to augment human crea
 
 """
 
-spliter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0,separator="")
+spliter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0,separator="") # creating an instance of the CharacterTextSplitter class
 
-res = spliter.split_text(text)
+res = spliter.split_text(text) # splitting the text into chunks of 100 characters with no overlap
 
-print(res)
+print(res) # printing the result
