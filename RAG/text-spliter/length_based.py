@@ -1,4 +1,7 @@
 from langchain.text_splitter import CharacterTextSplitter # importing the CharacterTextSplitter class
+from langchain_community.document_loaders import PyPDFLoader # importing the PyPDFLoader class to load the pdf file
+
+url = "books/C++_STL_Interview_Topics"
 
 text ="""
 **Generative AI (GenAI): A Transformative Force in Technology**
@@ -12,7 +15,8 @@ One of the most compelling aspects of GenAI is its ability to augment human crea
 """
 
 spliter = CharacterTextSplitter(chunk_size=100, chunk_overlap=0,separator="") # creating an instance of the CharacterTextSplitter class
+doc = PyPDFLoader(url) # loading the pdf file using the PyPDFLoader class
+print(doc)
+# res = spliter.split_text(doc[0]) # splitting the text into chunks of 100 characters with no overlap
 
-res = spliter.split_text(text) # splitting the text into chunks of 100 characters with no overlap
-
-print(res) # printing the result
+# print(res) # printing the result
