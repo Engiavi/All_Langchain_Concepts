@@ -23,3 +23,6 @@ Thumbs.db
 ./env
 books
 ./books
+my_chroma_db
+./my_chroma_db
+./my_chroma_db/
