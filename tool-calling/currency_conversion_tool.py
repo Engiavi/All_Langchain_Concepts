@@ -31,4 +31,23 @@ def convert(base_currency_value: int, conversion_rate: Annotated[float, Injected
 
   return base_currency_value * conversion_rate
 
-print(get_conversion_factor.invoke({'base_currency':'USD','target_currency':'INR'}))
+response = get_conversion_factor.invoke({'base_currency':'USD','target_currency':'INR'})
+
+conversion_rate = response['conversion_rate']
+
+# print(convert.invoke({'base_currency_value':10, 'conversion_rate':conversion_rate}))
+
+# tool binding(bind the tools with the LLM)
+
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+llm_with_tools = llm.bind_tools([get_conversion_factor, convert])
+
+# Human message
+messages = [HumanMessage('What is the conversion factor between INR and USD, and based on that can you convert 10 inr to usd')]
+
+# print(messages)
+
+ai_message = llm_with_tools.invoke(messages)
+messages.append(ai_message)
+
+print(ai_message.tool_calls)
