@@ -68,7 +68,19 @@ for tool_call in ai_message.tool_calls:
     # fetch the current arg
     tool_call['args']['conversion_rate'] = conversion_rate
     tool_message2 = convert.invoke(tool_call)
-    print(tool_message2)
     messages.append(tool_message2)
     
 print(llm_with_tools.invoke(messages).content)
+
+# Step 5: Initialize the Agent ---
+agent_executor = initialize_agent(
+    tools=[get_conversion_factor, convert],
+    llm=llm,
+    agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,  # using ReAct pattern
+    verbose=True  # shows internal thinking
+)
+# --- Step 6: Run the Agent ---
+user_query = input("Enter your query: ")
+
+response = agent_executor.invoke({"input": user_query})
+print(response)
