@@ -22,3 +22,8 @@ def get_weather_data(city: str) -> str:
   response = requests.get(url)
 
   return response.json()
+
+# intialize the google generative AI model
+llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash") # using the gemini-2 model
+result = llm.invoke("hello") #invoke the llm with a message
+print(result.content) #getting the content of the result
