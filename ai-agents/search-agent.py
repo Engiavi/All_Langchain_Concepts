@@ -30,3 +30,10 @@ result = llm.invoke("hello") #invoke the llm with a message
 
 # Step 2: Pull the ReAct prompt from LangChain Hub
 prompt = hub.pull("hwchase17/react")  # pulls the standard ReAct agent prompt,ReAct = reasoning + action
+
+# Step 3: Create the ReAct agent manually with the pulled prompt
+agent = create_react_agent(
+    llm=llm,
+    tools=[search_tool, get_weather_data],
+    prompt=prompt
+)
