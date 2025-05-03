@@ -37,3 +37,10 @@ agent = create_react_agent(
     tools=[search_tool, get_weather_data],
     prompt=prompt
 )
+
+# Step 4: Wrap it with AgentExecutor
+agent_executor = AgentExecutor(
+    agent=agent,
+    tools=[search_tool, get_weather_data],
+    verbose=True
+)
