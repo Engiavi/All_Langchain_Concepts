@@ -44,3 +44,7 @@ agent_executor = AgentExecutor(
     tools=[search_tool, get_weather_data],
     verbose=True
 )
+
+# Step 5: Invoke
+response = agent_executor.invoke({"input": "Find the capital of Madhya Pradesh, then find it's current weather condition"})
+print(response)
