@@ -26,4 +26,7 @@ def get_weather_data(city: str) -> str:
 # intialize the google generative AI model
 llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash") # using the gemini-2 model
 result = llm.invoke("hello") #invoke the llm with a message
-print(result.content) #getting the content of the result
+# print(result.content) #getting the content of the result
+
+# Step 2: Pull the ReAct prompt from LangChain Hub
+prompt = hub.pull("hwchase17/react")  # pulls the standard ReAct agent prompt,ReAct = reasoning + action
